@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.smarter.sell.dao.ProductCategoryDao" >
+
+    <resultMap id="productCategoryMap" type="com.smarter.sell.entities.ProductCategory">
+        <id column="category_id" property="categoryId"></id>
+        <result column="category_name" property="categoryName"></result>
+        <result column="category_type" property="categoryType"></result>
+    </resultMap>
+
+    <select id="findOneById" resultMap="productCategoryMap">
+        SELECT category_id , category_name,category_type FROM product_category WHERE category_id = #{category_id};
+    </select>
+
+    <insert id="insertProductCategory" parameterType="com.smarter.sell.entities.ProductCategory">
+        INSERT INTO product_category(category_name,category_type) VALUES (#{categoryName},#{categoryType});
+    </insert>
+
+    <update id="updateProductCategory" parameterType="ProductCategory">
+        UPDATE product_category SET category_name=#{categoryName},category_type=#{categoryType} WHERE category_id =#{categoryId}
+    </update>
+
+    <select id="findAllByCotegoryType" resultMap="productCategoryMap"  parameterType="list">
+        SELECT category_id , category_name,category_type FROM product_category
+        WHERE
+        category_type
+        IN
+        <foreach collection="list" open="(" close=")" separator="," item="category_type">
+            #{category_type}
+        </foreach>
+    </select>
+
+</mapper>
