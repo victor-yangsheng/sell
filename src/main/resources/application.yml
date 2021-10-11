@@ -10,3 +10,5 @@ mybatis:
 logging:
   level:
     com.smarter.sell.dao : debug
+server:
+  port: 9191
