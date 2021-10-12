@@ -12,6 +12,7 @@ public class TestController {
 
     @GetMapping("/test1")
     public String test(){
+        System.out.println("写了行测试代码");
         return "hello world";
     }
 
