@@ -12,3 +12,10 @@ logging:
     com.smarter.sell.dao : debug
 server:
   port: 9191
+ca:
+  test:
+    one: one
+    one-a: one
+  test-two:
+    two: two
+    two-b: two

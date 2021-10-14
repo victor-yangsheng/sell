@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 
 @Data
-public class ProductCategory implements Serializable {
+public class ProductCategory implements Serializable,Cloneable {
 
     /*类目id*/
     private Integer categoryId;
@@ -17,4 +17,8 @@ public class ProductCategory implements Serializable {
     /*类目类型*/
     private Integer categoryType;
 
+    @Override
+    protected ProductCategory clone() throws CloneNotSupportedException {
+        return (ProductCategory)super.clone();
+    }
 }
