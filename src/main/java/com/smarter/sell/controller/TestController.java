@@ -29,6 +29,9 @@ public class TestController {
         System.out.println("写了行测试代码");
 
         ProductCategory productCategory = new ProductCategory();
+        productCategory.setCategoryId(1);
+        productCategory.setCategoryType(2);
+        productCategory.setCategoryType(3);
 
         return productCategory;
     }
